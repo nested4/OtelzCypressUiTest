@@ -1,0 +1,23 @@
+{
+  "name": "otelz_automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "otelz"
+  ],
+  "author": "ihsan ozge",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.11.0"
+  },
+  "devDependencies": {
+    "@cypress/xpath": "^2.0.3",
+    "@types/cypress": "^1.1.3",
+    "cypress-iframe": "^1.0.1",
+    "cypress-xpath": "^2.0.1"
+  }
+}
