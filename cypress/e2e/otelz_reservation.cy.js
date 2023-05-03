@@ -11,6 +11,7 @@ describe('Otelz.com Test', () => {
     cy.get('[data-testid="locationSearchBtn"]').type('İstanbul')
     cy.get('[data-testid="locationSearchBtn"]').should('have.value','İstanbul')
     cy.get('[data-testid="locationSearchBtn"]').clear().type('Adilcevaz').type('{Enter}')
+    
     cy.get('.sc-a26d6d0-0').click()
     cy.get(':nth-child(1) > .react-datepicker__day--005').click()
     cy.get(':nth-child(1) > .react-datepicker__day--007').click()
