@@ -49,17 +49,51 @@ describe('Otelz.com Test', () => {
           cy.get('[name="cardInfo.ccV2"]').type('001')
           cy.xpath('//button[@type="submit"]').click()
 
+          const getIframeDocument = () => {
+            return cy
+            .xpath("//iframe[@title='3d']")
+            // Cypress yields jQuery element, which has the real
+            // DOM element under property "0".
+            // From the real DOM iframe element we can get
+            // the "document" element, it is stored in "contentDocument" property
+            // Cypress "its" command can access deep properties using dot notation
+            // https://on.cypress.io/its
+            .its('0.contentDocument').should('exist')
+          }
+          
+          const getIframeBody = () => {
+            // get the document
+            return getIframeDocument()
+            // automatically retries until body is loaded
+            .its('body').should('not.be.undefined')
+            // wraps "body" DOM element to allow
+            // chaining more Cypress commands, like ".find(...)"
+            .then(cy.wrap)
+          }
+
+          getIframeBody().find('#run-button').should('have.text', 'Try it').click()
+
+
+          // cy.xpath("//iframe[@title='3d']").its('0.contentDocument.body').then(cy.wrap).xpath('//"input#smsCode""]').type('201409')
+
+
+          // cy.xpath("//iframe[@title='3d']").then(function($ele)
+          // {
+          //   var ifele= $ele.contents().find("input#smsCode").type('201409')
+          // }
+          // )
+
 
         // Enter SMS code in the iframe
  // Select the iframe and switch to it
 // cy.getIframe('.sc-8399c98-1')
 // Switch back to the main window
 // cy.switchTo('default')
-//         cy.get('input#smsCode').type('201409')
-cy.frameLoaded('.sc-8399c98-1')
+        // cy.get('input#smsCode').type('201409')
+// cy.frameLoaded('.sc-8399c98-1')
 // 
 
-cy.iframe('.sc-8399c98-1').find('input#smsCode').type('201409')
+// cy.iframe('.sc-8399c98-1').find('input#smsCode').type('201409')
 
       
 
