@@ -132,6 +132,7 @@ describe("Otelz.com Test", () => {
   });
 });
 
+
 /*
 1.	"https://web-app.dev.otelz.com/" adresine gidilir ve açıldığı doğrulanır
 2.	Arama kutusuna "İstanbul" yazılır ve doğrulama yapıldıktan sonra silinir
